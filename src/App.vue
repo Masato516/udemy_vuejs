@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <LikeHeader header-text="props経由の親からのstring">
+    <LikeHeader data-from-parent="props経由の親からのstring(受け渡し側:ケバブケース)">
       <h1>slot経由のHTML</h1>
-      <h2>{{ number }}</h2>
+      <h2>{{ parentData }}</h2>
     </LikeHeader>
   </div>
 </template>
@@ -13,10 +13,9 @@ import LikeHeader from './components/LikeHeader'
 export default {
   data() {
     return {
-      number: 14
+      parentData: '親のdataです'
     };
   },
-  props: ["headerText"],
   components: {
     LikeHeader
   }
