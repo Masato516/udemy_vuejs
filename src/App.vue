@@ -1,28 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <LikeHeader header-text="props経由の親からのstring">
+      <!-- <h1>slot経由のHTML</h1>
+      <h2>{{ number }}</h2> -->
+    </LikeHeader>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import LikeHeader from './components/LikeHeader'
 
 export default {
-  name: 'App',
+  data() {
+    return {
+      number: 14
+    };
+  },
+  props: ["headerText"],
   components: {
-    HelloWorld
+    LikeHeader
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+/* 子要素と同じ要素にスタイルを適用させた場合は、親のスタイルが適用される */
+h1 {
+  color: red;
 }
 </style>
